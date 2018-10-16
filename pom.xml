@@ -49,18 +49,33 @@
   </dependencies>
   
   <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.2</version>
+    <plugins>
+    	<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>2.3</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <transformers>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <mainClass>com.java.cronscheduler.SpringQuartz.SpringQuartzScheduler.AppMain</mainClass>
+                            </transformer>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                <resource>META-INF/spring.handlers</resource>
+                            </transformer>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                <resource>META-INF/spring.schemas</resource>
+                            </transformer>
+                        </transformers>
                     </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
     </build>
 </project>

@@ -1,2 +1,5 @@
 com\java\cronscheduler\SpringQuartz\SpringQuartzScheduler\App.class
 com\java\cronscheduler\SpringQuartz\SpringQuartzScheduler\MyBean.class
+com\java\cronscheduler\SpringQuartz\SpringQuartzScheduler\ScheduledJob.class
+com\java\cronscheduler\SpringQuartz\SpringQuartzScheduler\AppMain.class
+com\java\cronscheduler\SpringQuartz\SpringQuartzScheduler\AnotherBean.class
